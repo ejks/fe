@@ -1,7 +1,7 @@
 <template>
 	<div class="home">
 		<Navbar />
-		<Carousel />
+		<!-- <Carousel /> -->
 		
 		<DealDetails />
 		<!-- <v-card>
