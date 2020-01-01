@@ -3,7 +3,7 @@
 		<v-layout class="justify-center">
 		<v-app-bar app flat class="hidden-sm-and-down">
 			<v-flex class="justify-space-around">
-			<v-btn flat text color="grey darken-1">
+			<v-btn flat text color="grey darken-1" to="/deals">
 				<span>Browse Coupons</span>
 				<v-icon right>mdi-sale</v-icon>
 			</v-btn>
@@ -32,15 +32,15 @@
 		width
 		height
 		>
-			<v-btn>
+			<v-btn to="/deals">
 				<span>Coupons</span>
 				<v-icon>mdi-sale</v-icon>
 			</v-btn>
-			<v-btn>
+			<v-btn to="/home">
 				<span>Gäst</span>
 				<v-icon>mdi-sprout-outline</v-icon>
 			</v-btn>
-			<v-btn>
+			<v-btn to="/profile">
 				<span>Profile</span>
 				<v-icon>mdi-account</v-icon>
 			</v-btn>

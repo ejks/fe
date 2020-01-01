@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <Navbar />
-    <Carousel />
     <!-- <GetStartedBtn /> -->
     <!-- <DealCard /> -->
     <v-content>
@@ -14,7 +13,7 @@
 
 <script>
 import Navbar from '@/components/Navbar';
-import Carousel from '@/components/Carousel';
+
 // import ClickCounter from '@/components/ClickCounter';
 
 // import GetStartedBtn from '@/components/GetStartedBtn';
@@ -22,11 +21,13 @@ import Carousel from '@/components/Carousel';
 
 export default {
   name: 'App',
-  components: { Navbar, Carousel },
+  components: { Navbar },
 
 
 }
 </script>
 <style>
-
+.v-content {
+  padding:0!important;
+}
 </style>

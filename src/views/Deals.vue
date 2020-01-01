@@ -1,7 +1,7 @@
 <template>
 	<div class="home">
 		<Navbar />
-		<!-- <Carousel /> -->
+		<Carousel />
 		
 		<DealDetails />
 		<!-- <v-card>
@@ -105,12 +105,12 @@
 
 <script>
 import DealDetails from '../components/DealDetails'
-// import ClickCounter from '../components/ClickCounter'
+import Carousel from '../components/Carousel'
 
 
 export default {
 name: "Deals",
-components: { DealDetails },
+components: { DealDetails, Carousel },
 
     
 };
