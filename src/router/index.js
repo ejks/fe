@@ -23,6 +23,16 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/vendors',
+    name: 'vendors',
+    component: () => import('../views/VendorLanding.vue')
+  },
+  {
+    path: '/vendor',
+    name: 'vendor',
+    component: () => import('../views/Vendor.vue')
   }
 ]
 

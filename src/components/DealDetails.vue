@@ -51,7 +51,7 @@
         <v-card-text class="mt-n1.5 pt-0"><v-span class="font-weight-bold">Disclaimer</v-span><br>{{deal.disclaimer}}
         </v-card-text>
         <v-layout row class="d-flex justify-space-around">
-			<v-btn width="35vw" dark color="cyan darken-3" rounded depressed @click.stop="deal.dialog = true">
+			<v-btn width="35vw" dark color="#DFA937" tile class="buttons" depressed @click.stop="deal.dialog = true">
 				get coupon
 			</v-btn>
 			<v-dialog
@@ -74,46 +74,14 @@
         <v-card-actions class="d-flex justify-center pb-3">
 
           <v-btn
-            width="80%" large dark color="cyan darken-3" rounded depressed
+            width="80%" dark color="#DFA937" tile class="buttons" depressed to="/profile"
           >
             see in profile
           </v-btn>
-          <!-- <v-dialog v-model="deal.dialog2" max-width="290">
-			<v-card>
-				<v-layout row class="mx-auto">
-        <v-card-title class="headline">Success!</v-card-title>
-		<v-spacer></v-spacer>
-        <v-btn icon @click="deal.dialog2 = false">
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
-        </v-layout>
-		
-        <v-card-text>
-          You have successfully claimed this deal.
-        </v-card-text>
-
-        <v-card-actions class="d-flex justify-space-around pb-3">
-
-          <v-btn
-            width="auto" dark color="cyan darken-3" rounded depressed
-            @click="deal.dialog2 = false"
-          >
-            see in profile
-          </v-btn>
-      </v-card-actions>
-  </v-card>
-          </v-dialog> -->
-
-          <!-- <v-btn
-            width="30vw" dark color="cyan darken-3" rounded depressed
-            @click="deal.dialog = false"
-          >
-            cancel
-          </v-btn> -->
         </v-card-actions>
       </v-card>
     </v-dialog>
-			<v-btn width="35vw" dark color="cyan darken-3" rounded depressed>
+			<v-btn width="35vw" tile class="buttonst" depressed>
 				share
 			</v-btn>
 		</v-layout>
@@ -167,17 +135,22 @@ export default {
 		}))
 	}
   },
-// import ClickCounter from './ClickCounter';
-
-// export default {
-// name: "DealDetails",
-// // components: { ClickCounter },
-data: () => ({
+	data: () => ({
       details: [
-          { id: 1, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Stickstick", title: "50% off Chicken Skewers", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks at our Xuhui location. Share this deal  with your friends and enjoy it together.", distance: "300 m", disclaimer: "Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00.", address: "Xinhua Rd, No 245, Xuhui", dialog: false, dialog2: false},
-		{ id: 2, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Bones", title: "Buy one get one Rib racks", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks..", distance: "200 m", dialog: false, dialog2: false},
-		{ id: 3, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Cocola", title: "75% off all cakes", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks..", distance: "100 m", dialog: false, dialog2: false}
+          { id: 1, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Stickstick", title: "50% off Chicken Skewers", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks at our Xuhui location. Share this deal  with your friends and enjoy it together.", distance: "300 m", disclaimer: "Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00.", address: "Xinhua Rd, No 245, Xuhui", dialog: false},
+		{ id: 2, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Bones", title: "Buy one get one Rib racks", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks..", distance: "200 m", dialog: false},
+		{ id: 3, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Cocola", title: "75% off all cakes", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks..", distance: "100 m", dialog: false}
         ]
     })
 }
 </script>
+<style scoped>
+.buttons {
+	border-radius: 5px;
+}
+.buttonst {
+	border-radius: 5px;
+	background-color: rgba(223, 169, 55, 20%)!important;
+	color: #DFA937!important;
+}
+</style>

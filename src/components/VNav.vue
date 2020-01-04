@@ -32,11 +32,11 @@
 		width
 		height
 		>
-			<v-btn to="/deals">
-				<span>Coupons</span>
+			<v-btn to="/vendor">
+				<span>vendor</span>
 				<v-icon>mdi-sale</v-icon>
 			</v-btn>
-			<v-btn to="/">
+			<v-btn to="/vendors">
 				<span>Gäst</span>
 				<v-icon>mdi-sprout-outline</v-icon>
 			</v-btn>
