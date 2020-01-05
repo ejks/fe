@@ -177,7 +177,7 @@
       max-width="290">
       <v-card>
 			<v-layout row class="mx-auto">
-        <v-card-title class="headline">Delete deal</v-card-title>
+        <v-card-title class="headline">Delete Deal</v-card-title>
 		<v-spacer></v-spacer>
         <v-btn icon @click="deal.dialog = false">
             <v-icon>mdi-close</v-icon>
