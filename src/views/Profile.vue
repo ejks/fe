@@ -54,7 +54,7 @@
           <v-btn
             width="80%" dark color="#DFA937" tile class="buttons" depressed @click="remove(index)"
           >
-            cancel
+            yes, i am sure
           </v-btn>
            </v-card-actions>
       </v-card>

@@ -32,9 +32,6 @@
         @click:append="show1 = !show1"
         color="#DFA937"
     ></v-text-field>
-    
-	
-		
   </v-form>
   <v-btn dark width="95%" color="#DFA937" tile class="buttons mb-3" depressed to="/vendor">
 				login
@@ -122,13 +119,70 @@
   <v-btn dark width="95%" color="#DFA937" tile class="buttons mb-3" depressed to="/">
 				submit for approval
 			</v-btn>
-			<v-btn text small class="pt-0 mt-0">
+			<v-btn text small class="pt-0 mt-0" @click="dialog = true">
 			<v-card-text class="mr-3 pt-0 text-lowercase"><span class="text-capitalize">Already</span> have an account? <span class="font-weight-bold"><span class="text-capitalize">Login</span> here</span></v-card-text>
 		</v-btn>
 </v-layout>
 </v-card>
 			</v-dialog>
 		</v-layout>
+		<v-layout row class="mx-9 my-8">
+			<v-list>
+				<p class="font-weight-medium">Our partners are not allowed to sell:</p>
+      <v-list-item
+        v-for="item1 in items1"
+        :key="item1.title"
+      >
+        <v-list-item-icon>
+          <v-icon v-if="item1.icon" color="red">mdi-cancel</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title v-text="item1.title" class="font-weight-medium"></v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+	<v-list>
+		<p class="font-weight-medium">The reasons why food end up on our site could be one of the following reasons:</p>
+      <v-list-item
+        v-for="item in items2"
+        :key="item.title"
+      >
+        <v-list-item-icon>
+          <v-icon v-if="item.icon" color="orange">mdi-carrot</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title v-text="item.title" class="font-weight-medium"></v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+		</v-layout>
+		<v-col class="mx-auto" width="100vw">
+			<p class="font-weight-medium headline text-capitalize mx-8">contact us</p>
+			<p class="body font-weight-medium mx-8"><v-icon class="pr-2" width="100vw">mdi-email</v-icon>gast@gmail.com</p>
+			<p class="body font-weight-medium mx-8"><v-icon class="pr-2" width="100vw">mdi-phone</v-icon>+86 188 1737 3070</p>
+		</v-col>
+		<v-layout justify-center>
+			<v-icon color="grey darken-4" size="200">mdi-qrcode</v-icon>
+		</v-layout>
+		<v-footer
+			color="white"
+			padless
+			>
+			<v-row
+			justify="center"
+			no-gutters
+			>
+			<p class="caption ma-2 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, rerum! Modi illo deserunt excepturi similique ea magni.</p>
+				<v-col
+					class="#FFF py-4 text-center gray--text"
+				cols="12"
+				>
+			{{ new Date().getFullYear() }} — <strong>Gäst</strong>
+				</v-col>
+			</v-row>
+			</v-footer>
 	</div>
 </template>
 <script>
@@ -141,12 +195,28 @@ export default {
 			dialog1: false,
 			items: ['Restaurant', 'Bar', 'Café', 'Grocery store'],
 			value: ['Restaurant', 'Bar', 'Café', 'Grocery store'],
+			items2: [
+		{ icon: true, title: "Overproduction" },
+		{ icon: true, title: "Short time until best before date" },
+		{ icon: true, title: "Season specific food" },
+		{ icon: true, title: "Packaging deformation" },
+		{ icon: true, title: "Production mistakes"}
+		],
+		items1: [
+		{ icon: true, title: "Spoiled food" },
+		{ icon: true, title: "Food waste" }
+		],
 		}
 	}
 
 }
 </script>
 <style scoped>
+.vendorlanding {
+	background-color: #FFF;
+	height: 100%;
+	width: 100vw;
+}
 .buttons {
 	border-radius: 5px;
 }
