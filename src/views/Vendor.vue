@@ -75,12 +75,10 @@
       required
       color="#DFA937"
     ></v-text-field>
-    <v-text-field
-      v-model="photo"
-      label="Deal Photo"
-      color="#DFA937"
-      append-icon="mdi-camera-plus"
-    ></v-text-field>
+    <v-file-input
+		label="Deal Photo"
+		prepend-icon="mdi-camera"
+	></v-file-input>
 	
 		
   </v-form>

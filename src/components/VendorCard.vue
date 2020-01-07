@@ -73,9 +73,18 @@
 <v-card-actions class="d-flex justify-space-around pb-3">
 
           <v-btn
-            width="90%" dark color="#DFA937" tile class="buttons" depressed @click="deal.dialog3 = false">
+            width="90%" dark color="#DFA937" tile class="buttons" depressed @click="deal.dialog3 = false, snackbar = true">
             save & post
           </v-btn>
+          <v-snackbar
+			v-model="snackbar" color="success">
+			You have successfully activated this deal. It is now live and is viseble for customers!
+			<v-btn
+			vertical
+			text
+			dark
+			@click="deal.snackbar = false">close</v-btn>
+			</v-snackbar>
            </v-card-actions>
       </v-card>
     
@@ -143,12 +152,16 @@
       required
       color="#DFA937"
     ></v-text-field>
-    <v-text-field
+    <!-- <v-text-field
       v-model="photo"
       label="Deal Photo"
       color="#DFA937"
       append-icon="mdi-camera-plus"
-    ></v-text-field>
+    ></v-text-field> -->
+    <v-file-input
+		label="Deal Photo"
+		prepend-icon="mdi-camera"
+	></v-file-input>
 	
 		
   </v-form>
@@ -165,6 +178,16 @@
             width="40%" dark color="#DFA937" tile class="buttonst" depressed @click="deal.dialog2 = false">
             save
           </v-btn>
+          <v-snackbar
+			v-model="snackbar">
+			You have successfully edited this deal. Toggle the switch to make the deal live and visable for customers!
+			<v-btn
+			color="success"
+			vertical
+			text
+			dark
+			@click="deal.snackbar = false">close</v-btn>
+			</v-snackbar>
            </v-card-actions>
       </v-card>
     </v-dialog>
@@ -195,9 +218,20 @@
           >
             yes, i am sure
           </v-btn>
+
            </v-card-actions>
       </v-card>
     </v-dialog>
+    <v-snackbar
+			v-model="snackbar">
+			You have successfully activated this deal. It is now live and is viseble for customers!
+			<v-btn
+			color="success"
+			vertical
+			text
+			dark
+			@click="snackbar = false">close</v-btn>
+			</v-snackbar>
         </v-row>	
      </v-layout>
   </v-card>
@@ -229,6 +263,7 @@ export default {
 
 	},
 	data: () => ({
+		snackbar: false,
       details: [
           { id: 1, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Stickstick", title: "50% off Chicken Skewers", time1: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks at our Xuhui location. Share this deal  with your friends and enjoy it together.", distance: "300 m", disclaimer: "Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00.", address: "Xinhua Rd, No 245, Xuhui", dialog: false, switch: false, dialog2: false, dialog3: false},
 		{ id: 2, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Bones", title: "Buy one get one Rib racks", time1: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks..", distance: "200 m", disclaimer: "Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00.", dialog: false, switch: false, dialog2: false, dialog3: false},

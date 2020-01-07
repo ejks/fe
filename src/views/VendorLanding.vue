@@ -116,9 +116,19 @@
 	
 		
   </v-form>
-  <v-btn dark width="95%" color="#DFA937" tile class="buttons mb-3" depressed to="/">
+  <v-btn dark width="95%" color="#DFA937" tile class="buttons mb-3" depressed @click="snackbar = true">
 				submit for approval
 			</v-btn>
+			<v-snackbar
+			v-model="snackbar" color="success">
+			Successfully submitted. An account manager will contact you shortly to confirm your account
+			<v-btn
+			vertical
+			text
+			dark
+			@click="snackbar = false">close</v-btn>
+			</v-snackbar>
+
 			<v-btn text small class="pt-0 mt-0" @click="dialog = true">
 			<v-card-text class="mr-3 pt-0 text-lowercase"><span class="text-capitalize">Already</span> have an account? <span class="font-weight-bold"><span class="text-capitalize">Login</span> here</span></v-card-text>
 		</v-btn>
@@ -189,6 +199,7 @@
 export default {
 	data () {
 		return {
+			snackbar: false,
 			show1: false,
 			password: "Password",
 			dialog: false,
