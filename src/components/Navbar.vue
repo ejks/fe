@@ -37,8 +37,7 @@
 				<v-icon>mdi-sale</v-icon>
 			</v-btn>
 			<v-btn to="/">
-				<span>Gäst</span>
-				<v-icon>mdi-sprout-outline</v-icon>
+				<Gast class="logo" />
 			</v-btn>
 			<v-btn to="/profile">
 				<span>Profile</span>
@@ -49,8 +48,10 @@
 </template>
 
 <script>
+import Gast from '../assets/資產7.svg'
 export default {
-
+name: 'Navbar',
+components: {Gast},
 }
 </script>
 <style>
@@ -65,5 +66,9 @@ export default {
 }
 .v-toolbar {
 	top: 0;
+}
+.logo {
+	width: 2rem;
+	height: 2rem;
 }
 </style>
