@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import Gast from '../assets/資產7.svg'
+import Gast from '../assets/rac1.svg'
 export default {
 name: 'Navbar',
 components: {Gast},
@@ -70,5 +70,6 @@ components: {Gast},
 .logo {
 	width: 2rem;
 	height: 2rem;
+
 }
 </style>

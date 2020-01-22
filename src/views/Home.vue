@@ -3,8 +3,10 @@
 		<Navbar />
 		<v-img height="200px" src="../assets/cross.jpg">
 		</v-img>
+		
 		<v-layout row class="mx-9 my-8">
 			<p class="font-weight-medium text-center">Find deals on food that needs to be consumed today!</p>
+
 			<v-btn dark block color="#DFA937" tile class="buttons" depressed>
 				user login to find deals
 				<v-icon right>mdi-wechat</v-icon>
@@ -48,7 +50,7 @@
 </template>
 <script>
 import Navbar from '../components/Navbar'
-
+// import Gast from '../assets/rac1.svg'
 export default {
 	name: "Home",
 	components: { Navbar },
@@ -82,5 +84,9 @@ export default {
 	border-radius: 5px;
 	background-color: rgba(223, 169, 55, 20%)!important;
 	color: #DFA937!important;
+}
+.log {
+	width: 10rem;
+	height: 10rem;
 }
 </style>
