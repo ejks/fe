@@ -93,7 +93,6 @@
 </template>
 <script>
 import Navbar from '../components/Navbar'
-import axios from 'axios'
 
 export default {
 	name: "Profile",
@@ -107,22 +106,11 @@ export default {
 			users: [
 				{ username: "Jim Halpert", avatar: "https://cdn.vuetifyjs.com/images/cards/foster.jpg" }
 			],
-			deals: []
-			// deals: [
-			// 	{ id: 1, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Stickstick", title: "50% off Chicken Skewers", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks at our Xuhui location. Share this deal  with your friends and enjoy it together.", distance: "300 m", disclaimer: "Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00." },
-			// 	{ id: 2, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Stickstick", title: "Bkhfes fjsekfg", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks at our Xuhui location. Share this deal  with your friends and enjoy it together.", distance: "300 m", disclaimer: "Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00." }
-			// ] 
+			deals: [
+				{ id: 1, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Stickstick", title: "50% off Chicken Skewers", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks at our Xuhui location. Share this deal  with your friends and enjoy it together.", distance: "300 m", disclaimer: "Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00." },
+				{ id: 2, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Stickstick", title: "Bkhfes fjsekfg", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks at our Xuhui location. Share this deal  with your friends and enjoy it together.", distance: "300 m", disclaimer: "Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00." }
+			] 
 		}
-	},
-	created() {
-		axios.get('http://localhost:3000/api/v1/promotions.json') 
-		.then(response => {
-			debugger;
-			this.deals = response.data
-		})
-		.catch(e => {
-			this.error.push(e)
-		})
 	},
 	methods: {
 		remove(id) {
