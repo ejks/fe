@@ -125,21 +125,25 @@
 import axios from 'axios'
 export default {
   name: "DealDetails",
-  mounted(){
-	this.addShow()
-  },
-  methods: {
-	addShow() {
-		this.details = this.details.map(details => ({
-			...details,
-			show: false
-		}))
-	}
-  },
+ //  mounted(){
+	// this.addShow()
+ //  },
+ //  methods: {
+	// addShow() {
+	// 	this.details = this.details.map(details => ({
+	// 		...details,
+	// 		show: false
+	// 	}))
+	// }
+ //  },
   created() {
 		axios.get('http://localhost:3000/api/v1/promotions.json') 
 		.then(response => {
 			this.details = response.data.cards
+			this.details = this.details.map(details => ({
+        ...details,
+        show: false
+		}))
 		})
 		.catch(e => {
 			this.error.push(e)
