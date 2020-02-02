@@ -3,17 +3,14 @@
 		<v-img height="300px" src="../assets/cross.jpg">
 		</v-img>
 		<v-col align="center">
-		<v-avatar class="mt-n12" size="170" color="gray">
-				<img
-        src="../assets/avatar.png"
-        alt="John"
-      >
+			<v-avatar class="mt-n12" size="170" color="gray">
+				<img src="../assets/avatar.png" alt="John"/>
 			</v-avatar>
 			<v-btn depressed dark class="button mb-6" width="80%" @click="dialog = true">
 				add new deal
 			</v-btn>
 			<p class="headline font-weight-medium mb-0">{{ vendor.name }}</p>
-			<p class="subtitle-1">Café</p>
+			<p class="subtitle-1">{{ vendor.vendor_type }}</p>
 			<v-layout row class="justify-end mx-5">
 				<v-btn text class="mt-n12 pt-0">
 					<v-icon right>mdi-pencil</v-icon>
@@ -84,7 +81,9 @@
 		</v-col>
 		<v-layout row class="mx-9">
 			<p class="title font-weight-bold">Description</p>
-			<p class="body1 font-weight-regular">From an upscale cocktail lounge to a burger and fries dive, there are many different personalities your new restaurant or bar can assume. Defining your mission statement is an important way that you can attract the right customers and reinforce your goals, which can set you up for long-term success.</p>
+			<p class="body1 font-weight-regular">
+				{{ vendor.description }}
+			</p>
 			<p class="title font-weight-bold">Saved Deals</p>
 			<VendorCard />
 		</v-layout>
@@ -92,12 +91,24 @@
 </template>
 
 <script>
+import axios from 'axios'
 import VendorCard from '../components/VendorCard.vue'
 export default {
 	name: "Vendor",
 	components: { VendorCard },
+	created() {
+		// @TODO: get vendor id to replace url below
+		axios.get('http://localhost:3000/api/v1/vendors/1') 
+		.then(response => {
+      this.vendor = response.data
+		})
+		.catch(e => {
+			this.error.push(e)
+		})
+	},
 	data () {
 		return {
+			vendor: null,
 			dialog: false,
 			dialog2: false,
 		}
