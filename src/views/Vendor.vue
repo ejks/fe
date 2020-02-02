@@ -85,7 +85,7 @@
 				{{ vendor.description }}
 			</p>
 			<p class="title font-weight-bold">Saved Deals</p>
-			<VendorCard />
+			<VendorCard :vendorId="vendor.id" />
 		</v-layout>
 	</div>
 </template>
