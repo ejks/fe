@@ -142,7 +142,8 @@ export default {
 			this.details = response.data.cards
 			this.details = this.details.map(details => ({
         ...details,
-        show: false
+        show: false,
+        dialog: false
 		}))
 		})
 		.catch(e => {
