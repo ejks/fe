@@ -7,10 +7,137 @@
 		<v-layout row class="mx-9 my-8">
 			<p class="font-weight-medium text-center">Find deals on food that needs to be consumed today!</p>
 
-			<v-btn dark block color="#DFA937" tile class="buttons" depressed>
+			<v-btn dark block color="#DFA937" tile class="buttons" depressed @click="dialog1 = true">
 				user login to find deals
 				<v-icon right>mdi-wechat</v-icon>
 			</v-btn>
+			<v-dialog v-model="dialog" max-width="300">
+				<v-card>
+					<v-layout row class="mx-3">
+						<v-card-title>Login</v-card-title>
+				<v-form
+    ref="form"
+    v-model="valid"
+    lazy-validation
+    class="mx-5"
+  >
+
+    <v-text-field
+      v-model="email"
+      :rules="emailRules"
+      label="E-mail"
+      required
+      color="#DFA937"
+    ></v-text-field>
+	
+	<v-text-field
+        v-model="password"
+        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show1 ? 'text' : 'password'"
+        name="input-10-1"
+        @click:append="show1 = !show1"
+        color="#DFA937"
+    ></v-text-field>
+  </v-form>
+  <v-btn dark width="95%" color="#DFA937" tile class="buttons mb-3" depressed to="/vendor">
+				login
+			</v-btn>
+			<v-btn text small class="pt-0 mt-0" @click="dialog1 = true">
+			<v-card-text class="mr-3 pt-0 text-lowercase"><span class="text-capitalize">Don’t</span> have an account yet? <span class="font-weight-bold"><span class="text-capitalize">Register</span> here</span></v-card-text>
+		</v-btn>
+</v-layout>
+</v-card>
+</v-dialog>
+<v-dialog v-model="dialog1" max-width="300">
+				<v-card>
+					<v-layout row class="mx-3">
+						<v-card-title>Register Vendor Account</v-card-title>
+				<v-form
+    ref="form"
+    v-model="valid"
+    lazy-validation
+    class="mx-5"
+  >
+
+    <v-text-field
+      v-model="vendorname"
+      label="Name of Establishment"
+      required
+      color="#DFA937"
+    ></v-text-field>
+
+    <v-select
+            v-model="value"
+            :items="items"
+            attach
+            label="Type of Establishment"
+            color="#DFA937"
+    ></v-select>
+
+    <v-text-field
+      v-model="contactperson"
+      label="Contact Person"
+      required
+      color="#DFA937"
+    ></v-text-field>
+
+    <v-text-field
+      v-model="email"
+      label="E-mail"
+      
+      required
+      color="#DFA937"
+    ></v-text-field>
+	
+	<v-text-field
+      v-model="contactnumber"
+      label="Phone Number"
+      
+      required
+      color="#DFA937"
+    ></v-text-field>
+
+	<v-text-field
+        v-model="password"
+        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show1 ? 'text' : 'password'"
+        name="input-10-1"
+        label="Password"
+        @click:append="show1 = !show1"
+        color="#DFA937"
+    ></v-text-field>
+    <v-text-field
+        v-model="password"
+        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show1 ? 'text' : 'password'"
+        label="Confirm Password"
+        name="input-10-1"
+        @click:append="show1 = !show1"
+        color="#DFA937"
+    ></v-text-field>
+    
+	
+		
+  </v-form>
+  <v-btn dark width="95%" color="#DFA937" tile class="buttons mb-3" depressed @click="snackbar = true">
+				submit for approval
+			</v-btn>
+			<v-snackbar
+			v-model="snackbar" color="success">
+			Successfully submitted. An account manager will contact you shortly to confirm your account
+			<v-btn
+			vertical
+			text
+			dark
+			@click="snackbar = false">close</v-btn>
+			</v-snackbar>
+
+			<v-btn text small class="pt-0 mt-0" @click="dialog = true">
+			<v-card-text class="mr-3 pt-0 text-lowercase"><span class="text-capitalize">Already</span> have an account? <span class="font-weight-bold"><span class="text-capitalize">Login</span> here</span></v-card-text>
+		</v-btn>
+</v-layout>
+</v-card>
+			</v-dialog>
 			<v-btn tile class="buttonst" block depressed to="/vendors">
 				vendors click here to start
 				<v-icon right>mdi-store</v-icon>
