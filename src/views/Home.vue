@@ -11,7 +11,7 @@
 				user login to find deals
 				<v-icon right>mdi-wechat</v-icon>
 			</v-btn>
-			<v-dialog v-model="dialog" max-width="300">
+			<v-dialog v-model="dialog1" max-width="300">
 				<v-card>
 					<v-layout row class="mx-3">
 						<v-card-title>Login</v-card-title>
@@ -39,47 +39,25 @@
         color="#DFA937"
     ></v-text-field>
   </v-form>
-  <v-btn dark width="95%" color="#DFA937" tile class="buttons mb-3" depressed to="/vendor">
+  <v-btn dark width="95%" color="#DFA937" tile class="buttons mb-3" depressed to="/deals">
 				login
 			</v-btn>
-			<v-btn text small class="pt-0 mt-0" @click="dialog1 = true">
+			<v-btn text small class="pt-0 mt-0" @click="dialog2 = true">
 			<v-card-text class="mr-3 pt-0 text-lowercase"><span class="text-capitalize">Don’t</span> have an account yet? <span class="font-weight-bold"><span class="text-capitalize">Register</span> here</span></v-card-text>
 		</v-btn>
 </v-layout>
 </v-card>
 </v-dialog>
-<v-dialog v-model="dialog1" max-width="300">
+<v-dialog v-model="dialog2" max-width="300">
 				<v-card>
 					<v-layout row class="mx-3">
-						<v-card-title>Register Vendor Account</v-card-title>
+						<v-card-title>Register</v-card-title>
 				<v-form
     ref="form"
     v-model="valid"
     lazy-validation
     class="mx-5"
   >
-
-    <v-text-field
-      v-model="vendorname"
-      label="Name of Establishment"
-      required
-      color="#DFA937"
-    ></v-text-field>
-
-    <v-select
-            v-model="value"
-            :items="items"
-            attach
-            label="Type of Establishment"
-            color="#DFA937"
-    ></v-select>
-
-    <v-text-field
-      v-model="contactperson"
-      label="Contact Person"
-      required
-      color="#DFA937"
-    ></v-text-field>
 
     <v-text-field
       v-model="email"
@@ -89,13 +67,6 @@
       color="#DFA937"
     ></v-text-field>
 	
-	<v-text-field
-      v-model="contactnumber"
-      label="Phone Number"
-      
-      required
-      color="#DFA937"
-    ></v-text-field>
 
 	<v-text-field
         v-model="password"
@@ -119,12 +90,12 @@
 	
 		
   </v-form>
-  <v-btn dark width="95%" color="#DFA937" tile class="buttons mb-3" depressed @click="snackbar = true">
-				submit for approval
+  <v-btn dark width="95%" color="#DFA937" tile class="buttons mb-3" depressed @click="snackbar = true" to="/deals">
+				Register
 			</v-btn>
 			<v-snackbar
 			v-model="snackbar" color="success">
-			Successfully submitted. An account manager will contact you shortly to confirm your account
+			Thank you for joining the Gast community! We hope you will enjoy using our service.
 			<v-btn
 			vertical
 			text
@@ -132,7 +103,7 @@
 			@click="snackbar = false">close</v-btn>
 			</v-snackbar>
 
-			<v-btn text small class="pt-0 mt-0" @click="dialog = true">
+			<v-btn text small class="pt-0 mt-0" @click="dialog2 = true">
 			<v-card-text class="mr-3 pt-0 text-lowercase"><span class="text-capitalize">Already</span> have an account? <span class="font-weight-bold"><span class="text-capitalize">Login</span> here</span></v-card-text>
 		</v-btn>
 </v-layout>
@@ -194,7 +165,9 @@ export default {
 		{ icon: true, title: "Spoiled food" },
 		{ icon: true, title: "Food waste" }
 		],
-		dialog: false
+		dialog2: false,
+		dialog1: false,
+		snackbar: false
 	}
 	},
 }
