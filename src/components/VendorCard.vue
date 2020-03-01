@@ -18,7 +18,7 @@
 
         <v-layout row class="ml-3 mr-3 mt-0 px-1 pt-0">
           <v-card-subtitle class="font-weight-bold mt-1 pt-1">
-            promotion.time1
+            {{ promotion.time }}
             <!-- {{deal.time1}} -->
           </v-card-subtitle>
           <v-spacer></v-spacer>
