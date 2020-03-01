@@ -80,13 +80,25 @@
 			</v-layout>
 		</v-col>
 		<v-layout row class="mx-9">
+			<v-list-item>
+				<v-list-item-content>
+					<v-list-item-title class="title font-weight-bold mb-1 mt-n4">Description</v-list-item-title>
+					<v-list-item-subtitle class="body1 font-weight-regular mb-3">
+						{{ vendor.description }}
+					</v-list-item-subtitle>
+					<v-list-item-title class="title font-weight-bold">Saved Deals</v-list-item-title>
+				</v-list-item-content>
+			</v-list-item>
+			<VendorCard :vendorId="vendor.id" />
+		</v-layout>
+		<!-- <v-layout row class="mx-9">
 			<p class="title font-weight-bold">Description</p>
 			<p class="body1 font-weight-regular">
 				{{ vendor.description }}
 			</p>
 			<p class="title font-weight-bold">Saved Deals</p>
 			<VendorCard :vendorId="vendor.id" />
-		</v-layout>
+		</v-layout> -->
 	</div>
 </template>
 
