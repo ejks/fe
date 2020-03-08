@@ -2,6 +2,7 @@
 	<div class="vendor">
 		<v-img height="300px" src="../assets/cross.jpg">
 		</v-img>
+		
 		<v-col align="center">
 		<v-avatar class="mt-n12" size="170" color="gray">
 				<img
@@ -9,6 +10,11 @@
         alt="John"
       >
 			</v-avatar>
+			<v-layout row class="justify-end mx-5">
+				<v-btn text class="mt-n12 pt-0">
+					<v-icon right>mdi-logout</v-icon>
+				</v-btn>
+			</v-layout>
 			<v-btn depressed dark class="button mb-6" width="80%" @click="dialog = true">add new deal
 			</v-btn>
 			<p class="headline font-weight-medium mb-0">BoomBoom</p>
@@ -24,10 +30,10 @@
 			
 		<v-card>
 			<v-layout row class="mx-auto">
-        <v-card-title class="headline">Add new Deal</v-card-title>
-		<v-spacer></v-spacer>
-        <v-btn icon @click="dialog = false">
-            <v-icon>mdi-close</v-icon>
+				<v-card-title class="headline">Add new Deal</v-card-title>
+				<v-spacer></v-spacer>
+				<v-btn icon @click="dialog = false">
+				<v-icon>mdi-close</v-icon>
           </v-btn>
         </v-layout>
 				<v-form
