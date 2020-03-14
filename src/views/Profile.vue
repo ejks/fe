@@ -27,13 +27,17 @@
 				row
 				two-line
 				v-for="(deal, index) in deals"
-				:key="deal.title"
+				:key="index"
 				width="90vw"
 			>
 				<v-list-item>
 					<v-list-item-content>
-						<v-list-item-title>{{ deal.title }}</v-list-item-title>
-						<v-list-item-subtitle>{{ deal.time }}</v-list-item-subtitle>
+						<v-list-item-title>
+							{{ deal.promotion.name }}
+						</v-list-item-title>
+						<v-list-item-subtitle>
+							{{ deal.promotion.end_time }}
+						</v-list-item-subtitle>
 					</v-list-item-content>
 					<v-spacer></v-spacer>
 					<v-list-item-icon @click="deal.dialog = true" class="my-0">
@@ -63,7 +67,7 @@
 										tile
 										class="buttons"
 										depressed
-										@click="remove(index)"
+										@click="remove(deal.id, index)"
 									>
 										yes, i am sure
 									</v-btn>
@@ -101,56 +105,60 @@
 	</div>
 </template>
 <script>
+	import axios from 'axios';
 	import Navbar from '../components/Navbar';
 
 	export default {
 		name: 'Profile',
 		components: { Navbar },
 		mounted() {
-			this.addDialog();
+			this.getProfileInfo();
 		},
+		created() {},
 		data() {
 			return {
+				customerID: 1,
+				deals: [],
 				snackbar: false,
 				users: [
 					{
 						username: 'Jim Halpert',
 						avatar: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg'
 					}
-				],
-				deals: [
-					{
-						id: 1,
-						src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
-						restaurant: 'Stickstick',
-						title: '50% off Chicken Skewers',
-						time: 'All day offer',
-						description:
-							'We have some extra chicken that needs to go today. Come enjoy some skewers and drinks at our Xuhui location. Share this deal  with your friends and enjoy it together.',
-						distance: '300 m',
-						disclaimer:
-							'Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00.'
-					},
-					{
-						id: 2,
-						src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
-						restaurant: 'Stickstick',
-						title: 'Bkhfes fjsekfg',
-						time: 'All day offer',
-						description:
-							'We have some extra chicken that needs to go today. Come enjoy some skewers and drinks at our Xuhui location. Share this deal  with your friends and enjoy it together.',
-						distance: '300 m',
-						disclaimer:
-							'Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00.'
-					}
 				]
 			};
 		},
 		methods: {
-			remove(id) {
+			getProfileInfo() {
+				axios
+					.get(
+						`http://localhost:3000/api/v1/customers/${this.customerID}/show_coupons`
+					)
+					.then(response => {
+						this.deals = response.data;
+						this.addDialog();
+					})
+					.catch(function(error) {
+						alert('fail' + error);
+					});
+			},
+			remove(deal_id, index) {
 				// this.deals.splice(id, 1); JavaScript
 				// below VueJS delete helper
-				this.$delete(this.deals, id);
+				this.$delete(this.deals, index);
+				axios
+					.put(
+						`http://localhost:3000/api/v1/customers/${this.customerID}/cancel_coupon`,
+						{
+							deal_id: deal_id
+						}
+					)
+					.then(response => {
+						console.log('canceled');
+					})
+					.catch(function(error) {
+						alert('fail' + error);
+					});
 			},
 			addDialog() {
 				this.deals = this.deals.map(deals => ({
