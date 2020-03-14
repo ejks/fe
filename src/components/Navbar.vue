@@ -1,22 +1,22 @@
 <template>
 	<nav>
 		<v-layout class="justify-center">
-			<v-app-bar app flat class="hidden-sm-and-down">
+			<v-app-bar app text class="hidden-sm-and-down">
 				<v-flex class="justify-space-around">
-					<v-btn flat text color="grey darken-1" to="/deals">
+					<v-btn text color="grey darken-1" to="/deals">
 						<span>Browse Coupons</span>
 						<v-icon right>mdi-sale</v-icon>
 					</v-btn>
 				</v-flex>
 				<!-- <v-spacer></v-spacer> -->
 				<v-flex>
-					<v-btn flat text color="grey darken-1">
+					<v-btn text color="grey darken-1">
 						<v-icon>mdi-sprout-outline</v-icon>
 					</v-btn>
 				</v-flex>
 				<!-- <v-spacer></v-spacer> -->
 				<v-flex>
-					<v-btn flat text color="grey darken-1">
+					<v-btn text color="grey darken-1">
 						<span>Profile</span>
 						<v-icon right>mdi-account</v-icon>
 					</v-btn>
@@ -28,7 +28,6 @@
 			class="hidden-md-and-up"
 			grow
 			fixed
-			:value="activeBtn"
 			color="#DFA937"
 			width
 			height
