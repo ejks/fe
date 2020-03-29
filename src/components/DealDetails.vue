@@ -14,12 +14,12 @@
     ></v-img>
 	<v-layout row class="mx-3 px-1 mb-0 pb-0">
     <v-card-title class="mb-0 pb-0">
-      {{deal.title}}
+      {{deal.description}}
     </v-card-title>
 </v-layout>
 <v-layout row class="ml-3 mr-3 mt-0 px-1 pt-0">
     <v-card-subtitle class="font-weight-bold mt-1 pt-1">
-		{{deal.time}}
+		{{deal.end_time}}
     </v-card-subtitle>
     <v-spacer></v-spacer>
 	<v-btn class="mt-0 pt-0" text>
@@ -97,11 +97,13 @@
       >
 			</v-list-item-avatar>
 			<v-list-item-content>
-				<v-list-item-title class="headline">{{deal.restaurant}}</v-list-item-title>
+				<v-list-item-title class="headline">{{deal.vendor_name}}</v-list-item-title>
 			</v-list-item-content>
 		</v-list-item>
 		<v-btn text class="pb-0 mb-n3">
-		<p class="font-weight-bold body">{{deal.address}}</p>
+
+		<v-span class="font-weight-bold body">{{deal.vendor_address}}</v-span>
+
 		
 		<v-icon class="ml-12" right>mdi-map</v-icon>
 	</v-btn>
@@ -122,26 +124,39 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "DealDetails",
-  mounted(){
-	this.addShow()
-  },
-  methods: {
-	addShow() {
-		this.details = this.details.map(details => ({
-			...details,
-			show: false
+ //  mounted(){
+	// this.addShow()
+ //  },
+ //  methods: {
+	// addShow() {
+	// 	this.details = this.details.map(details => ({
+	// 		...details,
+	// 		show: false
+	// 	}))
+	// }
+ //  },
+  created() {
+		axios.get('http://localhost:3000/api/v1/promotions.json') 
+		.then(response => {
+			this.details = response.data.cards
+			this.details = this.details.map(details => ({
+        ...details,
+        show: false,
+        dialog: false
 		}))
-	}
-  },
-	data: () => ({
-      details: [
-          { id: 1, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Stickstick", title: "50% off Chicken Skewers", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks at our Xuhui location. Share this deal  with your friends and enjoy it together.", distance: "300 m", disclaimer: "Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00.", address: "Xinhua Rd, No 245, Xuhui", dialog: false},
-		{ id: 2, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Bones", title: "Buy one get one Rib racks", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks..", distance: "200 m", dialog: false, disclaimer: "Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00.", address: "Xinhua Rd, No 245, Xuhui"},
-		{ id: 3, src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg", restaurant: "Cocola", title: "75% off all cakes", time: "All day offer", description: "We have some extra chicken that needs to go today. Come enjoy some skewers and drinks..", distance: "100 m", dialog: false, disclaimer: "Offer only applies to individuals who have claimed the deal through Gast. Limit of 5 skewers per person. Offer is on between 20.00 - 22.00.", address: "Xinhua Rd, No 245, Xuhui"}
-        ]
-    })
+		})
+		.catch(e => {
+			this.error.push(e)
+		})
+	},
+	data() {
+		return {
+			details: []
+		}
+    },
 }
 </script>
 <style scoped>

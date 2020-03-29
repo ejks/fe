@@ -110,17 +110,29 @@
 	</div>
 </template>
 <script>
+import axios from 'axios'
 import VendorCard from '../components/VendorCard.vue'
 export default {
 	name: "Vendor",
 	components: { VendorCard },
-	data () {
+	created() {
+		axios.get('http://localhost:3000/api/v1/vendors.json') 
+		.then(response => {
+			this.details = response.data.cards
+			this.details = this.details.map(details => ({
+        ...details,
+        dialog: false,
+		dialog2: false,
+		}))
+		})
+		.catch(e => {
+			this.error.push(e)
+		})
+	},
+	data() {
 		return {
-			dialog: false,
-			dialog2: false,
 		}
-	}
-
+    },
 }
 </script>
 <style>
