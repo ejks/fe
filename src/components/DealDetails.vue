@@ -48,7 +48,7 @@
     <v-expand-transition>
       <div v-show="deal.show">
 		<v-layout row class="mx-3 px-1 mb-0 pb-0">
-        <v-card-text class="mt-n1.5 pt-0"><v-span class="font-weight-bold">Disclaimer</v-span><br>{{deal.disclaimer}}
+        <v-card-text class="mt-n1.5 pt-0 font-weight-bold">Disclaimer<br>{{deal.disclaimer}}
         </v-card-text>
         <v-layout row class="d-flex justify-space-around">
 			<v-btn width="35vw" dark color="#DFA937" tile class="buttons" depressed @click.stop="deal.dialog = true">
@@ -101,7 +101,9 @@
 			</v-list-item-content>
 		</v-list-item>
 		<v-btn text class="pb-0 mb-n3">
+
 		<v-span class="font-weight-bold body">{{deal.vendor_address}}</v-span>
+
 		
 		<v-icon class="ml-12" right>mdi-map</v-icon>
 	</v-btn>
