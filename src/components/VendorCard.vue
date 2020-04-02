@@ -1,6 +1,5 @@
 <template>
 	<div class="vendorcard">
-<<<<<<< HEAD
     <v-layout row class="mx-auto">
       <v-card tile
               class="mb-6"
@@ -212,7 +211,6 @@
         </v-layout>
       </v-card>
     </v-layout>
-=======
 		<v-layout row class="mx-auto">
 			<v-card
 				tile
@@ -472,7 +470,6 @@
 				</v-layout>
 			</v-card>
 		</v-layout>
->>>>>>> 562718ba5c73fdbd6337cdc7d0658dbc00a7500e
 	</div>
 </template>
 
@@ -524,7 +521,6 @@
 			};
 		}
 	};
->>>>>>> 562718ba5c73fdbd6337cdc7d0658dbc00a7500e
 </script>
 
 <style scoped>
