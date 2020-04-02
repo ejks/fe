@@ -81,7 +81,6 @@
 												you read the disclaimer and note the time when the
 												coupon can be claimed.
 											</v-card-text>
-
 											<v-card-actions class="d-flex justify-center pb-3">
 												<v-btn
 													width="80%"

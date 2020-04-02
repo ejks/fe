@@ -2,12 +2,19 @@
 	<div class="vendor">
 		<v-img height="300px" src="../assets/cross.jpg">
 		</v-img>
+		
 		<v-col align="center">
 			<v-avatar class="mt-n12" size="170" color="gray">
 				<img src="../assets/avatar.png" alt="John"/>
 			</v-avatar>
-			<v-btn depressed dark class="button mb-6" width="80%" @click="dialog = true">
-				add new deal
+
+			<v-layout row class="justify-end mx-5">
+				<v-btn text class="mt-n12 pt-0">
+					<v-icon right>mdi-logout</v-icon>
+				</v-btn>
+			</v-layout>
+			<v-btn depressed dark class="button mb-6" width="80%" @click="dialog = true">add new deal
+
 			</v-btn>
 			<p class="headline font-weight-medium mb-0">{{ vendor.name }}</p>
 			<p class="subtitle-1">{{ vendor.vendor_type }}</p>
@@ -15,6 +22,7 @@
 				<v-btn text class="mt-n12 pt-0">
 					<v-icon right>mdi-pencil</v-icon>
 				</v-btn>
+
 				<v-dialog v-model="dialog" max-width="290">
 					<v-card>
 						<v-layout row class="mx-auto">

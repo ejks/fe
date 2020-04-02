@@ -6,7 +6,6 @@
       hide-delimiter-background
       show-arrows-on-hover
       max-width="500"
-      touch
       class="mb-0"
     >
       <v-carousel-item

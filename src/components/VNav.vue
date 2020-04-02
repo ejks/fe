@@ -24,6 +24,7 @@
 			</v-app-bar>
 		</v-layout>
 
+
 		<v-bottom-navigation
 			class="hidden-md-and-up"
 			grow
