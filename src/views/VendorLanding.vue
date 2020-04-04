@@ -92,6 +92,12 @@
 								required
 								color="#DFA937"
 							></v-text-field>
+							<v-text-field
+								v-model="address"
+								label="Address"
+								required
+								color="#DFA937"
+							></v-text-field>
 
 							<v-text-field
 								v-model="email"
@@ -125,6 +131,11 @@
 								@click:append="show1 = !show1"
 								color="#DFA937"
 							></v-text-field>
+							<v-checkbox
+								v-model="checkbox"
+								label="Agree with terms of service"
+								required
+						      ></v-checkbox>
 						</v-form>
 						<v-btn
 							dark
@@ -202,21 +213,15 @@
 		<v-layout justify-center>
 			<v-icon color="grey darken-4" size="200">mdi-qrcode</v-icon>
 		</v-layout>
-		<v-footer color="white" padless>
-			<v-row justify="center" no-gutters>
-				<p class="caption ma-2 text-center">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur,
-					rerum! Modi illo deserunt excepturi similique ea magni.
-				</p>
-				<v-col class="#FFF py-4 text-center gray--text" cols="12">
-					{{ new Date().getFullYear() }} — <strong>Gäst</strong>
-				</v-col>
-			</v-row>
-		</v-footer>
+		<VNav />
 	</div>
 </template>
 <script>
+	import VNav from '../components/VNav';
+
 	export default {
+	components: { VNav },
+
 		data() {
 			return {
 				snackbar: false,

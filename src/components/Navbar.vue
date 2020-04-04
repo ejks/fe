@@ -1,36 +1,40 @@
 <template>
 	<nav>
-		<v-layout class="justify-center">
-			<v-app-bar app text class="hidden-sm-and-down">
+		<v-layout>
+			
+			<v-app-bar app text prominent hide-on-scroll class="hidden-sm-and-down" >
+				<v-layout col style="margin-top: 1rem;">
+					<v-btn color="#FFF" icon x-large to="/">
+						<Gast class="lgb"/>
+					</v-btn>
+				</v-layout>
 				<v-flex class="justify-space-around">
-					<v-btn text color="grey darken-1" to="/deals">
+					
+				</v-flex>
+				<v-spacer></v-spacer>
+				
+				<v-spacer></v-spacer>
+				<v-btn text to="/deals">
 						<span>Browse Coupons</span>
 						<v-icon right>mdi-sale</v-icon>
 					</v-btn>
-				</v-flex>
-				<!-- <v-spacer></v-spacer> -->
-				<v-flex>
-					<v-btn text color="grey darken-1">
-						<v-icon>mdi-sprout-outline</v-icon>
-					</v-btn>
-				</v-flex>
-				<!-- <v-spacer></v-spacer> -->
-				<v-flex>
-					<v-btn text color="grey darken-1">
+				
+					<v-btn text to="/profile">
 						<span>Profile</span>
 						<v-icon right>mdi-account</v-icon>
 					</v-btn>
-				</v-flex>
+				
 			</v-app-bar>
 		</v-layout>
 
+
 		<v-bottom-navigation
-			class="hidden-md-and-up"
 			grow
 			fixed
 			color="#DFA937"
 			width
 			height
+			class="hidden-md-and-up"
 		>
 			<v-btn to="/deals">
 				<span>Coupons</span>
@@ -70,5 +74,10 @@
 	.logo {
 		width: 2rem;
 		height: 2rem;
+	}
+	.lgb {
+		width: 5rem;
+		height: 5rem;
+		margin-left: 5rem;
 	}
 </style>
